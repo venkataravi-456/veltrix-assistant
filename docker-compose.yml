@@ -1,0 +1,21 @@
+services:
+  assistant:
+    image: venkataravi456/veltrix-assistant:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: veltrix-assistant
+    ports:
+      - "8000:8000"
+    environment:
+      - CORPUS_DIR=/app/data/corpus
+      - MANIFEST_PATH=/app/data/manifest.json
+      - DB_PATH=/app/data/veltrix.db
+      - APP_TODAY=2026-09-15
+      - LLM_PROVIDER=${LLM_PROVIDER:-gemini}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

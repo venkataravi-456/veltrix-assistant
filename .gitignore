@@ -1,0 +1,22 @@
+# Environments and keys
+.env
+*.env
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Data folder and DBs (Assessment requirement: do not commit ./data)
+data/
+veltrix_assessment/
+__MACOSX/
+*.db
+*.log
+.chroma/
+
+# Pytest and IDE
+.pytest_cache/
+.vscode/
+.idea/
